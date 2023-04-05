@@ -1,8 +1,19 @@
 package transport;
 
 public class Truck extends Transport <DriverC> {
-    public Truck(String brand, String model, double engineVolume, DriverC driver) {
+
+    private Weight weight;
+    public Truck(String brand, String model, double engineVolume, DriverC driver, Weight weight) {
         super(brand, model, engineVolume, driver);
+        this.weight = weight;
+    }
+
+    public Weight getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Weight weight) {
+        this.weight = weight;
     }
 
     @Override
@@ -13,6 +24,17 @@ public class Truck extends Transport <DriverC> {
     @Override
     public void finishMove() {
         System.out.println(" Грузовик марки " + getBrand() + " закончил движение");
+    }
+
+    @Override
+    public void printType() {
+        if (weight==null) {
+            System.out.println("Данных по авто недостаточно");
+        } else {
+            String from = weight.getFrom() == null ? "" : "от " + weight.getFrom() + " ";
+            String to = weight.getTo() == null ? "" : "до " + weight.getTo() + " ";
+            System.out.println("Грузоподъемность авто: " + from + to);
+        }
     }
 
     @Override

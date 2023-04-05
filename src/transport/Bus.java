@@ -1,7 +1,18 @@
 package transport;
     public class Bus extends Transport<DriverD> {
-        public Bus(String brand, String model, double engineVolume, DriverD driver) {
+
+        private Capacity capacity;
+        public Bus(String brand, String model, double engineVolume, DriverD driver, Capacity capacity) {
             super(brand, model, engineVolume, driver);
+            this.capacity = capacity;
+        }
+
+        public Capacity getCapacity() {
+            return capacity;
+        }
+
+        public void setCapacity(Capacity capacity) {
+            this.capacity = capacity;
         }
 
         @Override
@@ -12,6 +23,16 @@ package transport;
         @Override
         public void finishMove() {
             System.out.println(" Автобус марки " + getBrand() + " закончил движение");
+        }
+
+        @Override
+        public void printType() {
+            if (capacity==null) {
+                System.out.println("Данных по авто недостаточно");
+            } else {
+
+                System.out.println("Совместимость автобуса: от " + capacity.getFrom() + "до " + capacity.getTo());
+            }
         }
 
         @Override
