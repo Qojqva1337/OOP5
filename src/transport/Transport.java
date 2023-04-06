@@ -47,6 +47,8 @@ public abstract class Transport<T extends Driver> implements Competing {
 
     public abstract void printType();
 
+    public abstract boolean diagnostics() throws DiagnosticFailedException;
+
 
 
     public Transport(String brand, String model, double engineVolume, T driver) {

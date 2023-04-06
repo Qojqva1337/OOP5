@@ -37,6 +37,17 @@ public class Car extends Transport<DriverB> {
         }
     }
 
+    @Override
+    public boolean diagnostics() throws DiagnosticFailedException {
+        if (getDriver() != null && getDriver().isHasDriverLicense()) {
+        return true;
+    } else {
+            throw new DiagnosticFailedException();
+        }
+    }
+
+
+
 
 
     @Override

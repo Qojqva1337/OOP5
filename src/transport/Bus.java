@@ -36,6 +36,12 @@ package transport;
         }
 
         @Override
+        public boolean diagnostics() throws DiagnosticFailedException {
+            return false;
+        }
+
+
+        @Override
         public void pitStop() {
             System.out.println("Пит стоп у автобуса");
         }

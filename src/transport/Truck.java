@@ -38,6 +38,17 @@ public class Truck extends Transport <DriverC> {
     }
 
     @Override
+    public boolean diagnostics() throws DiagnosticFailedException {
+        if (getDriver() != null && getDriver().isHasDriverLicense()) {
+                return true;
+            } else {
+                throw new DiagnosticFailedException();
+            }
+        }
+
+
+
+    @Override
     public void pitStop() {
         System.out.println("Пит стоп у грузовика");
     }
